@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<input id="loginButton" type="submit" onclick="signIn()" value="Sign in with Okta">
+{{#extend "scripts"}}
+    <script>
+        function signIn() {
+            console.log('login');
+            window.location.href='https://dev-141810.okta.com/oauth2/v1/authorize?idp=0oafp7h3ps2LnweX14x6&client_id=0oafpig9kmd36USJk4x6&response_type=code&response_mode=query&scope=openid&redirect_uri=http%3A%2F%2Flocalhost:9999%2Flogin&state=123123' //&nonce=sdfsdf
+        }
+    </script>
+{{/extend}}
