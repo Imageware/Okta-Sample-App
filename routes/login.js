@@ -65,7 +65,6 @@ function encodeLengthHex(n) {
 }
 
 function exchangeCodeForToken(code) {
-    console.log(Buffer.from(`${process.env.OKTA_CLIENT_ID}:${process.env.OKTA_CLIENT_SECRET}`).toString('base64'));
     return new Promise((resolve, reject) => {
         let options = {
             method: 'POST',
@@ -148,7 +147,6 @@ router.get('/', function(req, res) {
             return verifyToken(saveToken.id_token, publicKey);
         })
         .then(decoded => {
-            console.log(decoded);
             res.render('login', {title: 'My App that Integrates with Okta', decoded: JSON.stringify(decoded, null, 4), accessToken: saveToken.access_token});
         })
         .catch(err => {
